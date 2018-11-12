@@ -125,11 +125,7 @@
 														echo "<td>$i</td>";
 														echo "<td>" . $data['judul'] . "</td>";
 														echo "<td>" . $data['penulis'] . "</td>";
-<<<<<<< HEAD
 														echo "<td width='200px'>" . $data['tanggal'] . "</td>";
-=======
-														echo "<td>" . $data['tanggal'] . "</td>";
->>>>>>> 59d2791051db3e0178507e3f33fb4bbb80f436ee
 														echo "<td><img src='image/" . $data['gambar'] . "' align='center' width='200px' height='200px'></td>";
 														echo "<td>" . $data['isi'] . "</td>" ;
 														echo "<td>" . $data['kategori'] . "</td>";
@@ -141,11 +137,7 @@
 																<a href="" type="button" data-toggle="modal" data-target="#sunting<?php echo $data['id']; ?>" class="btn btn-warning"><i class="fa fa-pencil"></i>Sunting</a>
 																<br>
 																<br>
-<<<<<<< HEAD
 																<a href="" class="btn btn-danger" data-toggle="modal" data-target="#hapus"><i class="fa fa-trash"></i>Hapus&nbsp;&nbsp;&nbsp;</a>
-=======
-																<a href="hapusDataBlog.php?id=<?php echo $data['id']; ?>" class="btn btn-danger" data-toggle="modal" data-target="#hapus"><i class="fa fa-trash"></i>Hapus&nbsp;&nbsp;&nbsp;</a>
->>>>>>> 59d2791051db3e0178507e3f33fb4bbb80f436ee
 															</td>
 														</tr>
 														<!-- POPUP SUNTING -->
@@ -161,42 +153,23 @@
 																		</h4>
 																	</div>
 																	<div class="modal-body">
-<<<<<<< HEAD
 																		<form action="updateDataBlog.php?id=<?php echo $data['id']; ?>" method="post" enctype="multipart/form-data">
-=======
-																		<form action="" method="post">
-																			<!-- <div class="form-group">
-																				<label  class="form-control-label">
-																					ID
-																				</label>
-																				<input type="number" class="form-control" id="">
-																			</div> -->
->>>>>>> 59d2791051db3e0178507e3f33fb4bbb80f436ee
 																			<div class="form-group">
 																				<label  class="form-control-label">
 																					Judul
 																				</label>
-<<<<<<< HEAD
 																				<input name="judul" value="<?php echo $data['judul']; ?>" type="text" class="form-control" id="">
-=======
-																				<input name="judul_baru" type="text" class="form-control" id="">
->>>>>>> 59d2791051db3e0178507e3f33fb4bbb80f436ee
 																			</div>
 																			<div class="form-group">
 																				<label  class="form-control-label">
 																					Penulis
 																				</label>
-<<<<<<< HEAD
 																				<input name="penulis" value="<?php echo $data['penulis']; ?>" type="text" class="form-control" id="">
-=======
-																				<input name="penulis_baru" type="text" class="form-control" id="">
->>>>>>> 59d2791051db3e0178507e3f33fb4bbb80f436ee
 																			</div>
 																			<div class="form-group">
 																				<label  class="form-control-label">
 																					Tanggal Penulisan
 																				</label>
-<<<<<<< HEAD
 																				<input name="tanggal" value="<?php echo $data['tanggal']; ?>" type="date" class="form-control" id="">
 																			</div>
 																			<div class="form-group">
@@ -208,41 +181,21 @@
 																					<img src="image/<?php echo $data['gambar']; ?>"align='center' width='200px' height='200px'>
 									                        <br> Ganti gambar?
 																					<input name="gambar" type="file" class="customFile" class="custom-file-input">
-=======
-																				<input name="tanggal_baru" type="date" class="form-control" id="">
-																			</div>
-																			<div class="form-group">
-																				<label for="contact-name" class="control-label">Isi</label>
-																				<textarea name="isi_baru" class="summernote"></textarea>
-																			</div>
-																			<div class="custom-file">
-																					<label for="exampleInputFile">Gambar</label>
-																					<input name="gambar_baru" type="file" class="customFile" class="custom-file-input">
->>>>>>> 59d2791051db3e0178507e3f33fb4bbb80f436ee
 																					<p class="help-block">Pilih gambar untuk thumbnail blog Anda (Size Max. 2 MB)</p>
 																			</div>
 																			<div class="form-group">
 																				<label  class="form-control-label">
 																					Kategori
 																				</label>
-<<<<<<< HEAD
 																				<select name="kategori" value="<?php echo $data['kategori']; ?>" class="form-control" name="jual" id="exampleFormControlSelect1">
 																					<option value="<?php echo $data['kategori']; ?>" class="active"><?php echo $data['kategori']; ?></option>
-=======
-																				<select name="kategori_baru"class="form-control" name="jual" id="exampleFormControlSelect1">
-																					<option class="active">--Pilih Salah Satu--</option>
->>>>>>> 59d2791051db3e0178507e3f33fb4bbb80f436ee
 																					<option value="Berita">Berita</option>
 																					<option value="Edukasi">Edukasi</option>
 																				</select>
 																			</div>
 																			<div class="modal-footer">
-<<<<<<< HEAD
 																				 <!-- data-dismiss="modal" data-toggle="modal" data-target="#berhasil-sunting" -->
 																				<button name="submit" type="submit" class="btn btn-primary">
-=======
-																				<button name="submit_baru" type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#berhasil-sunting">
->>>>>>> 59d2791051db3e0178507e3f33fb4bbb80f436ee
 																					Simpan
 																				</button>
 																			</div>
@@ -288,41 +241,14 @@
 																	<div class="modal-body" id="popup-hapus">
 																		<p class="text-center">Yakin ingin menghapus blog?</p>
 																		<div class="text-center">
-<<<<<<< HEAD
 																			<!-- data-toggle="modal" data-target="#berhasil-hapus" data-dismiss="modal" -->
 																			<a href="hapusDataBlog.php?id=<?php echo $data['id']; ?>" type="button" class="btn btn-primary" style="margin-right: 20px">Ya</a>
 																			<button type="button" class="btn btn-danger" data-dismiss="modal">Tidak</button>
-=======
-																			<button type="button" class="btn btn-primary" style="margin-right: 20px" data-dismiss="modal" data-toggle="modal" data-target="#berhasil-hapus">Ya</button>
-																			<button type="button" class="btn btn-danger" data-dismiss="modal">Tidak</button>
 																		</div>
 																	</div>
 																</div>
 															</div>
 														</div>
-														<!-- END POPUP HAPUS -->
-														<!-- POPUP BERHASIL HAPUS -->
-														<div class="modal fade" id="berhasil-hapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-															<div class="modal-dialog modal-lg" role="document" id="modal-info">
-																<div class="modal-content">
-																	<button type="button" class="close-button" data-dismiss="modal">
-																		<i class="fa fa-times"></i>
-																	</button>
-																	<div class="modal-header">
-																		<h4 class="modal-title" id="exampleModalLabel">
-																			<i class="fa fa-trash"></i> Hapus Blog
-																		</h4>
-																	</div>
-																	<div class="modal-body" id="popup-info">
-																		<div class="alert alert-info alert-dismissible" role="alert">
-																			Blog berhasil dihapus
->>>>>>> 59d2791051db3e0178507e3f33fb4bbb80f436ee
-																		</div>
-																	</div>
-																</div>
-															</div>
-														</div>
-<<<<<<< HEAD
 														<!-- END POPUP HAPUS -->
 														<!-- POPUP BERHASIL HAPUS -->
 														<!-- <div class="modal fade" id="berhasil-hapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -348,8 +274,6 @@
 																</div>
 															</div>
 														</div> -->
-=======
->>>>>>> 59d2791051db3e0178507e3f33fb4bbb80f436ee
 														<!-- END POPUP BERHASIL HAPUS -->
 													<?php
 														$i++;}
