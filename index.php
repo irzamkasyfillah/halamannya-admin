@@ -11,12 +11,12 @@
 	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
 	<!-- MAIN CSS -->
-	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/main.min.css">
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/logo-minified-dark.png">
 </head>
 
 <body>
@@ -31,10 +31,6 @@
 				<div id="tour-fullwidth" class="navbar-btn">
 					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
 				</div>
-				<form class="navbar-form navbar-left search-form">
-					<input type="text" value="" class="form-control" placeholder="Search dashboard...">
-					<button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
-				</form>
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
@@ -108,7 +104,6 @@
 												<h4 class="modal-title" id="exampleModalLabel">
 													<i class="fa fa-lock"></i> Ganti Password
 												</h4>
-
 											</div>
 											<div class="modal-body">
 												<form>

@@ -11,12 +11,12 @@
 	<link rel="stylesheet" href="assets/vendor/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/vendor/linearicons/style.css">
 	<!-- MAIN CSS -->
-	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/main.min.css">
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/logo-minified-dark.png">
 </head>
 
 <body>
@@ -31,10 +31,6 @@
 				<div id="tour-fullwidth" class="navbar-btn">
 					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
 				</div>
-				<form class="navbar-form navbar-left search-form">
-					<input type="text" value="" class="form-control" placeholder="Search dashboard...">
-					<button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
-				</form>
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
@@ -140,15 +136,17 @@
 											</tr>
 										</tbody>
 									</table>
-									<ul class="pagination navbar-right">
-										<li class="disabled"><a href="#"><i class="fa fa-angle-left"></i><span class="sr-only">Previous</span></a></li>
-										<li class="active"><a href="#">1</a></li>
-										<li><a href="#">2</a></li>
-										<li><a href="#">3</a></li>
-										<li><a href="#">4</a></li>
-										<li><a href="#">5</a></li>
-										<li><a href="#"><i class="fa fa-angle-right"></i><span class="sr-only">Next</span></a></li>
-									</ul>
+									<div class="text-center">
+										<ul class="pagination">
+											<li class="disabled"><a href="#"><i class="fa fa-angle-left"></i><span class="sr-only">Previous</span></a></li>
+											<li class="active"><a href="#">1</a></li>
+											<li><a href="#">2</a></li>
+											<li><a href="#">3</a></li>
+											<li><a href="#">4</a></li>
+											<li><a href="#">5</a></li>
+											<li><a href="#"><i class="fa fa-angle-right"></i><span class="sr-only">Next</span></a></li>
+										</ul>
+									</div>
 								</div>
 							</div>
 							<!-- END BORDERED TABLE -->
@@ -163,7 +161,6 @@
 											<h4 class="modal-title" id="exampleModalLabel">
 												<i class="fa fa-pencil"></i> Sunting Blog
 											</h4>
-
 										</div>
 										<div class="modal-body">
 											<form>
@@ -214,7 +211,7 @@
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-primary">
-												Save
+												Simpan
 											</button>
 										</div>
 									</div>
