@@ -139,7 +139,7 @@
 															<td>
 																<div class="d-flex justify-content-center">
 																<a href="" id="action" class="btn btn-warning" data-toggle="modal" data-target="#sunting<?php echo $data['id']; ?>" ><i class="fa fa-pencil"></i></a>
-																<a href="" id="action" class="btn btn-danger" data-toggle="modal" data-target="#hapus"><i class="fa fa-trash"></i></a>
+																<a href="" id="action" class="btn btn-danger" data-toggle="modal" data-target="#hapus<?php echo $data['id']; ?>"><i class="fa fa-trash"></i></a>
 																</div>
 															</td>
 														</tr>
@@ -236,7 +236,7 @@
 														</div>
 														<!-- END POPUP BERHASIL SUNTING -->
 														<!-- POPUP HAPUS -->
-														<div class="modal fade" id="hapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+														<div class="modal fade" id="hapus<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 															<div class="modal-dialog modal-lg" role="document" id="modal-small">
 																<div class="modal-content">
 																	<button type="button" class="close-button" data-dismiss="modal">

@@ -103,7 +103,7 @@
 										<table class="table table-bordered table-striped">
 											<thead>
 												<tr>
-													<th><center>ID</center></th>
+													<th><center>No.</center></th>
 													<th><center>Judul</center></th>
 													<th><center>Penulis</center></th>
 													<th><center>Tanggal</center></th>
@@ -137,7 +137,7 @@
 																<a href="" type="button" data-toggle="modal" data-target="#sunting<?php echo $data['id']; ?>" class="btn btn-warning"><i class="fa fa-pencil"></i>Sunting</a>
 																<br>
 																<br>
-																<a href="" class="btn btn-danger" data-toggle="modal" data-target="#hapus"><i class="fa fa-trash"></i>Hapus&nbsp;&nbsp;&nbsp;</a>
+																<a href="" class="btn btn-danger" data-toggle="modal" data-target="#hapus<?php echo $data['id']; ?>"><i class="fa fa-trash"></i>Hapus&nbsp;&nbsp;&nbsp;</a>
 															</td>
 														</tr>
 														<!-- POPUP SUNTING -->
@@ -227,7 +227,7 @@
 														</div>
 														<!-- END POPUP BERHASIL SUNTING -->
 														<!-- POPUP HAPUS -->
-														<div class="modal fade" id="hapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+														<div class="modal fade" id="hapus<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 															<div class="modal-dialog modal-lg" role="document" id="modal-small">
 																<div class="modal-content">
 																	<button type="button" class="close-button" data-dismiss="modal">
