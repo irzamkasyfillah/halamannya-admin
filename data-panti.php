@@ -15,8 +15,7 @@
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
-	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/logo-minified-dark.png">
 </head>
 
 <body>
@@ -31,10 +30,6 @@
 				<div id="tour-fullwidth" class="navbar-btn">
 					<button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
 				</div>
-				<form class="navbar-form navbar-left search-form">
-					<input type="text" value="" class="form-control" placeholder="Search dashboard...">
-					<button type="button" class="btn btn-default"><i class="fa fa-search"></i></button>
-				</form>
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
@@ -103,68 +98,205 @@
 									</form>
 								</div>
 								<div class="panel-body">
-									<table class="table table-bordered table-striped">
-										<thead>
-											<tr>
-												<th><center>No.</center></th>
-												<th><center>Nama Panti Asuhan</center></th>
-												<th><center>Alamat</center></th>
-												<th><center>Kecamatan</center></th>
-												<th><center>Kelurahan</center></th>
-												<th><center>Jumlah Anak</center></th>
-												<th><center>Nama Pimpinan</center></th>
-												<th><center>Status Kepemilikian</center></th>
-												<th><center>Telepon</center></th>
-												<th><center>Action</center></th>
-											</tr>
-										</thead>
-										<tbody>
-											<?php
-													echo "<tr>";
-													include("koneksi.php");
-													$query = "SELECT * FROM data_panti";
-												  $hasil = mysqli_query($link,$query);
-													if (mysqli_num_rows($hasil)>0){
-													for ($i=1; $i<mysqli_num_rows($hasil)+1; $i++) {
-														$query = "SELECT * FROM data_panti WHERE id=$i";
-														$data = mysqli_fetch_assoc($hasil);
-														echo "<td>$i</td>";
-														echo "<td>" . $data['nama_panti']. "</td>";
-														echo "<td>" . $data['alamat']. "</td>";
-														echo "<td>" . $data['kecamatan']. "</td>";
-														echo "<td>" . $data['kelurahan']. "</td>";
-														echo "<td>" . $data['jumlah_anak']. "</td>";
-														echo "<td>" . $data['nama_pimpinan']. "</td>";
-														echo "<td>" . $data['status_kepemilikan']. "</td>";
-														echo "<td>" . $data['telepon']. "</td>";
-												?>
-														<td>
-															<div class="d-flex justify-content-center">
-															<a href="suntingDataPanti.php?id=<?php echo $data['id']; ?>" id="action" class="btn btn-warning" ><i class="fa fa-pencil"></i></a>
-															<a href="hapusDataPanti.php?id=<?php echo $data['id'];?>" id="action" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+									<div class="table-responsive">
+										<table class="table table-bordered table-striped">
+											<thead>
+												<tr>
+													<th><center>No.</center></th>
+													<th><center>Nama Panti Asuhan</center></th>
+													<th><center>Alamat</center></th>
+													<th><center>Kecamatan</center></th>
+													<th><center>Kelurahan</center></th>
+													<th><center>Jumlah Asuhan</center></th>
+													<th><center>Nama Pimpinan</center></th>
+													<th><center>Status Kepemilikian</center></th>
+													<th><center>Telepon</center></th>
+													<th><center>Donasi Diterima</center></th>
+													<th><center>Action</center></th>
+												</tr>
+											</thead>
+											<tbody>
+												<?php
+														echo "<tr>";
+														include("koneksi.php");
+														$query = "SELECT * FROM data_panti";
+													  $hasil = mysqli_query($link,$query);
+														if (mysqli_num_rows($hasil)>0){
+														for ($i=1; $i<mysqli_num_rows($hasil)+1; $i++) {
+															$query = "SELECT * FROM data_panti WHERE id=$i";
+															$data = mysqli_fetch_assoc($hasil);
+															echo "<td>$i</td>";
+															echo "<td>" . $data['nama_panti']. "</td>";
+															echo "<td>" . $data['alamat']. "</td>";
+															echo "<td>" . $data['kecamatan']. "</td>";
+															echo "<td>" . $data['kelurahan']. "</td>";
+															echo "<td>" . $data['jumlah_anak']. "</td>";
+															echo "<td>" . $data['nama_pimpinan']. "</td>";
+															echo "<td>" . $data['status_kepemilikan']. "</td>";
+															echo "<td>" . $data['telepon']. "</td>";
+													?>
+															<td>
+																<div class="d-flex justify-content-center">
+																<a href="suntingDataPanti.php?id=<?php echo $data['id']; ?>" id="action" class="btn btn-warning" ><i class="fa fa-pencil"></i></a>
+																<a href="hapusDataPanti.php?id=<?php echo $data['id'];?>" id="action" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+																</div>
+															</td>
+														</tr>
+														<!-- POPUP SUNTING -->
+														<div class="modal fade" id="sunting" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+															<div class="modal-dialog modal-lg" role="document">
+																<div class="modal-content">
+																	<button type="button" class="close-button" data-dismiss="modal">
+																		<i class="fa fa-times"></i>
+																	</button>
+																	<div class="modal-header">
+																		<h4 class="modal-title" id="exampleModalLabel">
+																			<i class="fa fa-pencil"></i> Sunting Data Panti Asuhan
+																		</h4>
+																	</div>
+																	<div class="modal-body" id="popup-sunting">
+																		<form>
+																			<div class="form-group">
+																				<label for="contact-name" class="control-label">Nama Panti Asuhan</label>
+																				<input type="text" class="form-control" id="contact-name" placeholder="Nama Panti Asuhan">
+																			</div>
+																			<div class="form-group">
+																				<label for="contact-name" class="control-label">Alamat</label>
+																				<input type="text" class="form-control" id="contact-name" placeholder="ex. Jl. xxxxx">
+																			</div>
+																			<div class="form-group">
+																				<label  class="control-label">Kecamatan</label>
+																				<select class="form-control" name="jual" id="exampleFormControlSelect1">
+																					<option class="active">--Pilih Salah Satu--</option>
+																					<option>Kecamatan A</option>
+																					<option>Kecamatan B</option>
+																				</select>
+																			</div>
+																			<div class="form-group">
+																				<label  class="control-label">Kelurahan</label>
+																				<select class="form-control" name="jual" id="exampleFormControlSelect1">
+																					<option class="active">--Pilih Salah Satu--</option>
+																					<option>Kelurahan A</option>
+																					<option>Kelurahan B</option>
+																				</select>
+																			</div>
+																			<div class="form-group">
+																				<label for="contact-name" class="control-label">Jumlah Anak Asuh</label>
+																				<input type="text" class="form-control" id="contact-name" placeholder="contoh: 100">
+																			</div>
+																			<div class="form-group">
+																				<label for="contact-name" class="control-label">Nama Pimpinan</label>
+																				<input type="text" class="form-control" id="contact-name" placeholder="Nama Pimpinan">
+																			</div>										
+																			<div class="form-group">
+																				<label  class="control-label">Status Kepemilikan</label>
+																				<select class="form-control" name="jual" id="exampleFormControlSelect1">
+																					<option class="active">--Pilih Salah Satu--</option>
+																					<option>Milik Organisasi</option>
+																					<option>Milik Yayasan</option>
+																					<option>Milik Individu</option>
+																				</select>
+																			</div>
+																			<div class="form-group">
+																				<label for="contact-name" class="control-label">No. Telepon/HP</label>
+																				<input type="text" class="form-control" id="contact-name" placeholder="ex. 08xxxxxxxx">
+																			</div>	
+																		</form>
+																	</div>
+																	<div class="modal-footer">
+																		<button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#berhasil-sunting">
+																			Simpan
+																		</button>
+																	</div>
+																</div>
 															</div>
-														</td>
-													</tr>
-													<?php
-													}
-												} ?>
-										</tbody>
-									</table>
-									<ul class="pagination navbar-right">
-										<li class="disabled"><a href="#"><i class="fa fa-angle-left"></i><span class="sr-only">Previous</span></a></li>
-										<li class="active"><a href="#">1</a></li>
-										<li><a href="#">2</a></li>
-										<li><a href="#">3</a></li>
-										<li><a href="#">4</a></li>
-										<li><a href="#">5</a></li>
-										<li><a href="#"><i class="fa fa-angle-right"></i><span class="sr-only">Next</span></a></li>
-									</ul>
+														</div>
+														<!-- END POPUP SUNTING -->
+														<!-- POPUP BERHASIL SUNTING -->
+														<div class="modal fade" id="berhasil-sunting" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+															<div class="modal-dialog modal-lg" role="document" id="modal-info">
+																<div class="modal-content">
+																	<button type="button" class="close-button" data-dismiss="modal">
+																		<i class="fa fa-times"></i>
+																	</button>
+																	<div class="modal-header">
+																		<h4 class="modal-title" id="exampleModalLabel">
+																			<i class="fa fa-pencil"></i> Sunting Data Panti Asuhan
+																		</h4>
+																	</div>
+																	<div class="modal-body" id="popup-info">
+																		<div class="alert alert-info alert-dismissible" role="alert">
+																			Data panti asuhan berhasil disunting
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<!-- END POPUP BERHASIL SUNTING -->
+														<!-- POPUP HAPUS -->
+														<div class="modal fade" id="hapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+															<div class="modal-dialog modal-lg" role="document" id="modal-small">
+																<div class="modal-content">
+																	<button type="button" class="close-button" data-dismiss="modal">
+																		<i class="fa fa-times"></i>
+																	</button>
+																	<div class="modal-header">
+																		<h4 class="modal-title" id="exampleModalLabel">
+																			<i class="fa fa-trash"></i> Hapus Data Panti Asuhan
+																		</h4>
+																	</div>
+																	<div class="modal-body" id="popup-hapus">
+																		<p class="text-center">Yakin ingin menghapus data panti asuhan?</p>
+																		<div class="text-center">
+																			<button type="button" class="btn btn-primary" style="margin-right: 40px" data-dismiss="modal" data-toggle="modal" data-target="#berhasil-hapus">Ya</button>
+																			<button type="button" class="btn btn-danger" data-dismiss="modal">Tidak</button>
+																		</div>	
+																	</div>
+																</div>
+															</div>
+														</div>
+														<!-- END POPUP HAPUS -->
+														<!-- POPUP BERHASIL HAPUS -->
+														<div class="modal fade" id="berhasil-hapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+															<div class="modal-dialog modal-lg" role="document" id="modal-info">
+																<div class="modal-content">
+																	<button type="button" class="close-button" data-dismiss="modal">
+																		<i class="fa fa-times"></i>
+																	</button>
+																	<div class="modal-header">
+																		<h4 class="modal-title" id="exampleModalLabel">
+																			<i class="fa fa-trash"></i> Hapus Data Panti Asuhan
+																		</h4>
+																	</div>
+																	<div class="modal-body" id="popup-info">
+																		<div class="alert alert-info alert-dismissible" role="alert">
+																			Data panti asuhan berhasil dihapus
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<!-- END POPUP BERHASIL HAPUS -->
+														<?php
+														}
+													} ?>
+											</tbody>
+										</table>
+									</div>
+									<div class="text-center">
+										<ul class="pagination">
+											<li class="disabled"><a href="#"><i class="fa fa-angle-left"></i><span class="sr-only">Previous</span></a></li>
+											<li class="active"><a href="#">1</a></li>
+											<li><a href="#">2</a></li>
+											<li><a href="#">3</a></li>
+											<li><a href="#">4</a></li>
+											<li><a href="#">5</a></li>
+											<li><a href="#"><i class="fa fa-angle-right"></i><span class="sr-only">Next</span></a></li>
+										</ul>	
+									</div>
 								</div>
 							</div>
 							<!-- END BORDERED TABLE -->
-							<!-- POPUP SUNTING -->
-
-							<!-- END POPUP SUNTING -->
 						</div>
 					</div>
 				</div>

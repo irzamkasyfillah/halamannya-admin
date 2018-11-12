@@ -1739,13 +1739,30 @@ table.dataTable thead .row-filter input {
   padding: 25px !important; }
 
 .modal-dialog{
-    overflow-y: initial !important
-}
+    overflow-y: initial !important}
+    #modal-small{
+      width: 350px;
+      margin: 150px auto;}
+    #modal-info{
+      width: 400px;
+      margin: 50px auto
+    }
+
 .modal-body{
     height: 260px;
     overflow-y: auto;}
     #popup-sunting{
     height: 450px;}
+    #popup-hapus{
+    height: auto;}
+    #popup-hapus p{
+      font-size: 16px;}
+    #popup-hapus button{
+      width: 100px;}
+    #popup-info{
+      height: auto;}
+    #popup-info .alert{
+      margin-bottom: 0;}
 
 .close-button {
     padding: 15px;
