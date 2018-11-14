@@ -1,10 +1,6 @@
 <!doctype html>
 <html lang="en">
 
-<?php
-	session_start();
-?>
-
 <head>
 	<title>Admin | INFERNITY</title>
 	<meta charset="utf-8">
@@ -38,9 +34,9 @@
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle-o"></i> <span><?php echo $_SESSION['username']; ?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-circle-o"></i> <span><?php 	session_start(); echo $_SESSION['username']; ?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
-								<li><a href="masuk.html"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+								<li><a href="logout-admin.php"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 							</ul>
 						</li>
 					</ul>
@@ -110,31 +106,32 @@
 												</h4>
 											</div>
 											<div class="modal-body">
-												<form>
+												<?php $username = $_SESSION['username']; ?>
+												<form action="ganti_password.php?id=<?php echo $username; ?>" method="post">
 													<div class="form-group">
 														<label  class="form-control-label">
 															Password Lama
 														</label>
-														<input type="password" class="form-control" id="">
+														<input name="password" type="password" class="form-control" id="">
 													</div>
 													<div class="form-group">
-														<label  class="form-control-label">
+														<label class="form-control-label">
 															Password Baru
 														</label>
-														<input type="password" class="form-control" id="">
+														<input name="password_baru" type="password" class="form-control" id="">
 													</div>
 													<div class="form-group">
-														<label  class="form-control-label">
+														<label class="form-control-label">
 															Konfirmasi Password
 														</label>
-														<input type="password" class="form-control" id="">
+														<input name="konfirmasi_password_baru" type="password" class="form-control" id="">
+													</div>
+													<div class="modal-footer">
+														<button name="submit" type="submit" class="btn btn-primary">
+															Simpan
+														</button>
 													</div>
 												</form>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-primary">
-													Simpan
-												</button>
 											</div>
 										</div>
 									</div>

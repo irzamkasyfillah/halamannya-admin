@@ -29,28 +29,28 @@
 									<div class="logo text-center"><img src="assets/img/logo-infernity-m.png" alt="Infernity Logo"></div>
 								</div>
 								<div class="panel-body">
-			            <form class="form-auth-small" action="index.php">
+			            <form class="form-auth-small" action="tambahAkunAdmin.php" method="post">
 			            	<div class="form-group">
 		                  <label for="signin-email" class="control-label sr-only">Nama</label>
-		                  <input type="text" class="form-control" id="signin-email" placeholder="Nama">
+		                  <input name="nama" type="text" class="form-control" id="signin-email" placeholder="Nama">
 		                </div>
 			            	<div class="form-group">
 		                  <label for="signin-email" class="control-label sr-only">Username</label>
-		                  <input type="text" class="form-control" id="signin-email" placeholder="Username">
+		                  <input name="username" type="text" class="form-control" id="signin-email" placeholder="Username">
 		                </div>
 			            	<div class="form-group">
 		                  <label for="signin-email" class="control-label sr-only">Email</label>
-		                  <input type="email" class="form-control" id="signin-email" placeholder="Email">
+		                  <input name="email" type="email" class="form-control" id="signin-email" placeholder="Email">
 		                </div>
 		                <div class="form-group">
 		                  <label for="signin-password" class="control-label sr-only">Password</label>
-		                  <input type="password" class="form-control" id="signin-password" placeholder="Password">
+		                  <input name="password" type="password" class="form-control" id="signin-password" placeholder="Password">
 		                </div>
 		                <div class="form-group">
 		                  <label for="signin-password" class="control-label sr-only">Konfirmasi Password</label>
-		                  <input type="password" class="form-control" id="signin-password" placeholder="Konfirmasi Password">
+		                  <input name="konfirmasi_password" type="password" class="form-control" id="signin-password" placeholder="Konfirmasi Password">
 		                </div>
-		                <button type="submit" class="btn btn-primary btn-lg btn-block">DAFTAR</button>
+		                <button name="submit" type="submit" class="btn btn-primary btn-lg btn-block">DAFTAR</button>
                   	<div class="bottom text-center">
                   		<span class="helper-text element-right">Sudah memiliki akun? <a href="login-admin.php">Login</a></span>
                   	</div>
