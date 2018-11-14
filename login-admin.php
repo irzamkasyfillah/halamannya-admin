@@ -20,7 +20,7 @@
 <body id="logindaftar">
 	<!-- WRAPPER -->
 	<div id="wrapper">
-		<div id="daftarform">
+		<div id="loginform">
 			<div class="main-content">
 				<div class="container-fluid">
 						<div class=" text-center ">
@@ -29,30 +29,21 @@
 									<div class="logo text-center"><img src="assets/img/logo-infernity-m.png" alt="Infernity Logo"></div>
 								</div>
 								<div class="panel-body">
-			            <form class="form-auth-small" action="index.php">
-			            	<div class="form-group">
-		                  <label for="signin-email" class="control-label sr-only">Nama</label>
-		                  <input type="text" class="form-control" id="signin-email" placeholder="Nama">
-		                </div>
+			            <form class="form-auth-small" action="verif_admin.php" method="post">
 			            	<div class="form-group">
 		                  <label for="signin-email" class="control-label sr-only">Username</label>
-		                  <input type="text" class="form-control" id="signin-email" placeholder="Username">
-		                </div>
-			            	<div class="form-group">
-		                  <label for="signin-email" class="control-label sr-only">Email</label>
-		                  <input type="email" class="form-control" id="signin-email" placeholder="Email">
+		                  <input name="email" type="email" class="form-control" id="signin-email" placeholder="Email">
 		                </div>
 		                <div class="form-group">
 		                  <label for="signin-password" class="control-label sr-only">Password</label>
-		                  <input type="password" class="form-control" id="signin-password" placeholder="Password">
+		                  <input name="password" type="password" class="form-control" id="signin-password" placeholder="Password">
 		                </div>
-		                <div class="form-group">
-		                  <label for="signin-password" class="control-label sr-only">Konfirmasi Password</label>
-		                  <input type="password" class="form-control" id="signin-password" placeholder="Konfirmasi Password">
-		                </div>
-		                <button type="submit" class="btn btn-primary btn-lg btn-block">DAFTAR</button>
+                    <div class="form-group clearfix">
+                      <span class="helper-text element-right">Tidak memiliki akun? <a href="daftar-admin.php">Daftar</a></span>
+                    </div>
+		                <button name="submit" type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
                   	<div class="bottom text-center">
-                  		<span class="helper-text element-right">Sudah memiliki akun? <a href="login-admin.html">Login</a></span>
+                  		<span class="helper-text"><i class="fa fa-lock"></i> <a href="lupa-password.php">Lupa password?</a></span>
                   	</div>
 			            </form>
 								</div>

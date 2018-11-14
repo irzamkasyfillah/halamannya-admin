@@ -39,7 +39,7 @@
 						                </div>
 						                <button type="submit" class="btn btn-primary btn-lg btn-block">KIRIM PASSWORD</button>
 		                              	<div class="bottom text-center">
-				                          <span class="helper-text element-right">Kembali ke Halaman <a href="login-admin.html"> Login</a></span>
+				                          <span class="helper-text element-right">Kembali ke Halaman <a href="login-admin.php"> Login</a></span>
 		                              	</div>
 						            </form>
 								</div>
