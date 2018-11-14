@@ -134,16 +134,17 @@
 															echo "<td>" . $data['nama_pimpinan']. "</td>";
 															echo "<td>" . $data['status_kepemilikan']. "</td>";
 															echo "<td>" . $data['telepon']. "</td>";
+															echo "<td>Rp.0</td>";
 													?>
 															<td>
 																<div class="d-flex justify-content-center">
-																<a href="suntingDataPanti.php?id=<?php echo $data['id']; ?>" id="action" class="btn btn-warning" ><i class="fa fa-pencil"></i></a>
-																<a href="hapusDataPanti.php?id=<?php echo $data['id'];?>" id="action" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+																<a href="" id="action" class="btn btn-warning" data-toggle="modal" data-target="#sunting<?php echo $data['id']; ?>" ><i class="fa fa-pencil"></i></a>
+																<a href="" id="action" class="btn btn-danger" data-toggle="modal" data-target="#hapus<?php echo $data['id']; ?>"><i class="fa fa-trash"></i></a>
 																</div>
 															</td>
 														</tr>
 														<!-- POPUP SUNTING -->
-														<div class="modal fade" id="sunting" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+														<div class="modal fade" id="sunting<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 															<div class="modal-dialog modal-lg" role="document">
 																<div class="modal-content">
 																	<button type="button" class="close-button" data-dismiss="modal">
@@ -155,58 +156,59 @@
 																		</h4>
 																	</div>
 																	<div class="modal-body" id="popup-sunting">
-																		<form>
+																		<form action="updateDataPanti.php?id=<?php echo $data['id'];?>" method="post">
 																			<div class="form-group">
 																				<label for="contact-name" class="control-label">Nama Panti Asuhan</label>
-																				<input type="text" class="form-control" id="contact-name" placeholder="Nama Panti Asuhan">
+																				<input name="nama_panti_asuhan" value="<?php echo $data['nama_panti']; ?>" type="text" class="form-control" id="contact-name" placeholder="Nama Panti Asuhan">
 																			</div>
 																			<div class="form-group">
 																				<label for="contact-name" class="control-label">Alamat</label>
-																				<input type="text" class="form-control" id="contact-name" placeholder="ex. Jl. xxxxx">
+																				<input name="alamat" value="<?php echo $data['alamat']; ?>" type="text" class="form-control" id="contact-name" placeholder="ex. Jl. xxxxx">
 																			</div>
 																			<div class="form-group">
 																				<label  class="control-label">Kecamatan</label>
-																				<select class="form-control" name="jual" id="exampleFormControlSelect1">
-																					<option class="active">--Pilih Salah Satu--</option>
-																					<option>Kecamatan A</option>
-																					<option>Kecamatan B</option>
+																				<select name="kecamatan" class="form-control" id="exampleFormControlSelect1">
+																					<option class="active" value="<?php echo $data['kecamatan']; ?>"><?php echo $data['kecamatan']; ?></option>
+																					<option value="Kecamatan A" >Kecamatan A</option>
+																					<option value="Kecamatan B" >Kecamatan B</option>
 																				</select>
 																			</div>
 																			<div class="form-group">
 																				<label  class="control-label">Kelurahan</label>
-																				<select class="form-control" name="jual" id="exampleFormControlSelect1">
-																					<option class="active">--Pilih Salah Satu--</option>
-																					<option>Kelurahan A</option>
-																					<option>Kelurahan B</option>
+																				<select name="kelurahan" class="form-control" id="exampleFormControlSelect1">
+																					<option class="active" value="<?php echo $data['kelurahan']; ?>"><?php echo $data['kecamatan']?></option>
+																					<option value="Kelurahan B" >Kelurahan A</option>
+																					<option value="Kelurahan B" >Kelurahan B</option>
 																				</select>
 																			</div>
 																			<div class="form-group">
 																				<label for="contact-name" class="control-label">Jumlah Anak Asuh</label>
-																				<input type="text" class="form-control" id="contact-name" placeholder="contoh: 100">
+																				<input name="jumlah_anak_asuh" value="<?php echo $data['jumlah_anak']; ?>" type="text" class="form-control" id="contact-name" placeholder="contoh: 100">
 																			</div>
 																			<div class="form-group">
 																				<label for="contact-name" class="control-label">Nama Pimpinan</label>
-																				<input type="text" class="form-control" id="contact-name" placeholder="Nama Pimpinan">
-																			</div>										
+																				<input name="nama_pimpinan" value="<?php echo $data['nama_pimpinan']; ?>" type="text" class="form-control" id="contact-name" placeholder="Nama Pimpinan">
+																			</div>
 																			<div class="form-group">
 																				<label  class="control-label">Status Kepemilikan</label>
-																				<select class="form-control" name="jual" id="exampleFormControlSelect1">
-																					<option class="active">--Pilih Salah Satu--</option>
-																					<option>Milik Organisasi</option>
-																					<option>Milik Yayasan</option>
-																					<option>Milik Individu</option>
+																				<select name="status_kepemilikan" class="form-control" id="exampleFormControlSelect1">
+																					<option class="active" value="<?php echo $data['status_kepemilikan']; ?>"><?php echo $data['status_kepemilikan']; ?></option>
+																					<option value="Milik Organisasi" >Milik Organisasi</option>
+																					<option value="Milik Yayasan" >Milik Yayasan</option>
+																					<option value="Milik Individu" >Milik Individu</option>
 																				</select>
 																			</div>
 																			<div class="form-group">
 																				<label for="contact-name" class="control-label">No. Telepon/HP</label>
-																				<input type="text" class="form-control" id="contact-name" placeholder="ex. 08xxxxxxxx">
-																			</div>	
+																				<input name="telepon" value="<?php echo $data['telepon']; ?>" type="text" class="form-control" id="contact-name" placeholder="ex. 08xxxxxxxx">
+																			</div>
+																			<div class="modal-footer">
+																				<!-- data-dismiss="modal" data-toggle="modal" data-target="#berhasil-sunting" -->
+																				<button name="submit" type="submit" class="btn btn-primary">
+																					Simpan
+																				</button>
+																			</div>
 																		</form>
-																	</div>
-																	<div class="modal-footer">
-																		<button type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#berhasil-sunting">
-																			Simpan
-																		</button>
 																	</div>
 																</div>
 															</div>
@@ -234,7 +236,7 @@
 														</div>
 														<!-- END POPUP BERHASIL SUNTING -->
 														<!-- POPUP HAPUS -->
-														<div class="modal fade" id="hapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+														<div class="modal fade" id="hapus<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 															<div class="modal-dialog modal-lg" role="document" id="modal-small">
 																<div class="modal-content">
 																	<button type="button" class="close-button" data-dismiss="modal">
@@ -248,9 +250,10 @@
 																	<div class="modal-body" id="popup-hapus">
 																		<p class="text-center">Yakin ingin menghapus data panti asuhan?</p>
 																		<div class="text-center">
-																			<button type="button" class="btn btn-primary" style="margin-right: 40px" data-dismiss="modal" data-toggle="modal" data-target="#berhasil-hapus">Ya</button>
+																			<!-- data-dismiss="modal" data-toggle="modal" data-target="#berhasil-hapus" -->
+																			<a href="hapusDataPanti.php?id=<?php echo $data['id'] ?>" type="button" class="btn btn-primary" style="margin-right: 40px" >Ya</a>
 																			<button type="button" class="btn btn-danger" data-dismiss="modal">Tidak</button>
-																		</div>	
+																		</div>
 																	</div>
 																</div>
 															</div>
@@ -292,7 +295,7 @@
 											<li><a href="#">4</a></li>
 											<li><a href="#">5</a></li>
 											<li><a href="#"><i class="fa fa-angle-right"></i><span class="sr-only">Next</span></a></li>
-										</ul>	
+										</ul>
 									</div>
 								</div>
 							</div>

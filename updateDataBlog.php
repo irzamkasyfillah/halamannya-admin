@@ -9,11 +9,11 @@
      $isi = $_POST['isi'];
      $kategori = $_POST['kategori'];
 
-       $nama_gambar = $_FILES['gambar_baru']['name'];
-       $lokasi_gambar = $_FILES['gambar_baru']['tmp_name'];
-       $format = $_FILES['gambar_baru']['type'];
-       $size = $_FILES['gambar_baru']['size'];
-       // if (isset($_POST['gambar_baru'])){
+       $nama_gambar = $_FILES['gambar']['name'];
+       $lokasi_gambar = $_FILES['gambar']['tmp_name'];
+       $format = $_FILES['gambar']['type'];
+       $size = $_FILES['gambar']['size'];
+       // if (isset($_POST['gambar'])){
        if ($format == 'image/jpeg' || $format == 'image/png'){
          if ($size < 5000000) {
            move_uploaded_file($lokasi_gambar, 'image/' . $nama_gambar);
@@ -39,6 +39,8 @@
          header("Location:data-blog.php");
        } else {
          echo "<script>alert('Blog gagal disunting !');</script>";
+         header("Location:data-blog.php");
        }
+       // header("Location:data-blog.php");
      }
   ?>

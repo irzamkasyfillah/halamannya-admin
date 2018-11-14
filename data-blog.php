@@ -103,7 +103,7 @@
 										<table class="table table-bordered table-striped">
 											<thead>
 												<tr>
-													<th><center>ID</center></th>
+													<th><center>No.</center></th>
 													<th><center>Judul</center></th>
 													<th><center>Penulis</center></th>
 													<th><center>Tanggal</center></th>
@@ -125,7 +125,7 @@
 														echo "<td>$i</td>";
 														echo "<td>" . $data['judul'] . "</td>";
 														echo "<td>" . $data['penulis'] . "</td>";
-														echo "<td>" . $data['tanggal'] . "</td>";
+														echo "<td width='200px'>" . $data['tanggal'] . "</td>";
 														echo "<td><img src='image/" . $data['gambar'] . "' align='center' width='200px' height='200px'></td>";
 														echo "<td>" . $data['isi'] . "</td>" ;
 														echo "<td>" . $data['kategori'] . "</td>";
@@ -137,7 +137,7 @@
 																<a href="" type="button" data-toggle="modal" data-target="#sunting<?php echo $data['id']; ?>" class="btn btn-warning"><i class="fa fa-pencil"></i>Sunting</a>
 																<br>
 																<br>
-																<a href="hapusDataBlog.php?id=<?php echo $data['id']; ?>" class="btn btn-danger" data-toggle="modal" data-target="#hapus"><i class="fa fa-trash"></i>Hapus&nbsp;&nbsp;&nbsp;</a>
+																<a href="" class="btn btn-danger" data-toggle="modal" data-target="#hapus<?php echo $data['id']; ?>"><i class="fa fa-trash"></i>Hapus&nbsp;&nbsp;&nbsp;</a>
 															</td>
 														</tr>
 														<!-- POPUP SUNTING -->
@@ -153,52 +153,49 @@
 																		</h4>
 																	</div>
 																	<div class="modal-body">
-																		<form action="" method="post">
-																			<!-- <div class="form-group">
-																				<label  class="form-control-label">
-																					ID
-																				</label>
-																				<input type="number" class="form-control" id="">
-																			</div> -->
+																		<form action="updateDataBlog.php?id=<?php echo $data['id']; ?>" method="post" enctype="multipart/form-data">
 																			<div class="form-group">
 																				<label  class="form-control-label">
 																					Judul
 																				</label>
-																				<input name="judul_baru" type="text" class="form-control" id="">
+																				<input name="judul" value="<?php echo $data['judul']; ?>" type="text" class="form-control" id="">
 																			</div>
 																			<div class="form-group">
 																				<label  class="form-control-label">
 																					Penulis
 																				</label>
-																				<input name="penulis_baru" type="text" class="form-control" id="">
+																				<input name="penulis" value="<?php echo $data['penulis']; ?>" type="text" class="form-control" id="">
 																			</div>
 																			<div class="form-group">
 																				<label  class="form-control-label">
 																					Tanggal Penulisan
 																				</label>
-																				<input name="tanggal_baru" type="date" class="form-control" id="">
+																				<input name="tanggal" value="<?php echo $data['tanggal']; ?>" type="date" class="form-control" id="">
 																			</div>
 																			<div class="form-group">
 																				<label for="contact-name" class="control-label">Isi</label>
-																				<textarea name="isi_baru" class="summernote"></textarea>
+																				<textarea name="isi" class="summernote"><?php echo $data['isi']; ?></textarea>
 																			</div>
 																			<div class="custom-file">
-																					<label for="exampleInputFile">Gambar</label>
-																					<input name="gambar_baru" type="file" class="customFile" class="custom-file-input">
+																					<label for="exampleInputFile">Gambar</label> <br>
+																					<img src="image/<?php echo $data['gambar']; ?>"align='center' width='200px' height='200px'>
+									                        <br> Ganti gambar?
+																					<input name="gambar" type="file" class="customFile" class="custom-file-input">
 																					<p class="help-block">Pilih gambar untuk thumbnail blog Anda (Size Max. 2 MB)</p>
 																			</div>
 																			<div class="form-group">
 																				<label  class="form-control-label">
 																					Kategori
 																				</label>
-																				<select name="kategori_baru"class="form-control" name="jual" id="exampleFormControlSelect1">
-																					<option class="active">--Pilih Salah Satu--</option>
+																				<select name="kategori" value="<?php echo $data['kategori']; ?>" class="form-control" name="jual" id="exampleFormControlSelect1">
+																					<option value="<?php echo $data['kategori']; ?>" class="active"><?php echo $data['kategori']; ?></option>
 																					<option value="Berita">Berita</option>
 																					<option value="Edukasi">Edukasi</option>
 																				</select>
 																			</div>
 																			<div class="modal-footer">
-																				<button name="submit_baru" type="button" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#berhasil-sunting">
+																				 <!-- data-dismiss="modal" data-toggle="modal" data-target="#berhasil-sunting" -->
+																				<button name="submit" type="submit" class="btn btn-primary">
 																					Simpan
 																				</button>
 																			</div>
@@ -230,7 +227,7 @@
 														</div>
 														<!-- END POPUP BERHASIL SUNTING -->
 														<!-- POPUP HAPUS -->
-														<div class="modal fade" id="hapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+														<div class="modal fade" id="hapus<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 															<div class="modal-dialog modal-lg" role="document" id="modal-small">
 																<div class="modal-content">
 																	<button type="button" class="close-button" data-dismiss="modal">
@@ -244,16 +241,17 @@
 																	<div class="modal-body" id="popup-hapus">
 																		<p class="text-center">Yakin ingin menghapus blog?</p>
 																		<div class="text-center">
-																			<button type="button" class="btn btn-primary" style="margin-right: 20px" data-dismiss="modal" data-toggle="modal" data-target="#berhasil-hapus">Ya</button>
+																			<!-- data-toggle="modal" data-target="#berhasil-hapus" data-dismiss="modal" -->
+																			<a href="hapusDataBlog.php?id=<?php echo $data['id']; ?>" type="button" class="btn btn-primary" style="margin-right: 20px">Ya</a>
 																			<button type="button" class="btn btn-danger" data-dismiss="modal">Tidak</button>
-																		</div>	
+																		</div>
 																	</div>
 																</div>
 															</div>
 														</div>
 														<!-- END POPUP HAPUS -->
 														<!-- POPUP BERHASIL HAPUS -->
-														<div class="modal fade" id="berhasil-hapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+														<!-- <div class="modal fade" id="berhasil-hapus" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 															<div class="modal-dialog modal-lg" role="document" id="modal-info">
 																<div class="modal-content">
 																	<button type="button" class="close-button" data-dismiss="modal">
@@ -265,13 +263,17 @@
 																		</h4>
 																	</div>
 																	<div class="modal-body" id="popup-info">
+																		<?php
+																		$id = $data['id'];
+																		include("hapusDataBlog.php");
+																		 ?>
 																		<div class="alert alert-info alert-dismissible" role="alert">
 																			Blog berhasil dihapus
 																		</div>
 																	</div>
 																</div>
 															</div>
-														</div>
+														</div> -->
 														<!-- END POPUP BERHASIL HAPUS -->
 													<?php
 														$i++;}
