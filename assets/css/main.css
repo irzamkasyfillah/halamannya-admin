@@ -6,6 +6,7 @@ body {
   background-color: #fff;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 15px;
+  margin:0 auto 0 auto;
   color: #5e6773; }
 
 a {
@@ -57,6 +58,14 @@ footer {
 /********************
  * LAYOUT
  ********************/
+#logindaftar {
+  width:100%;
+  height: 100%;
+  background-image: url(../img/bg.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover }
+
 #wrapper .sidebar {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -81,6 +90,29 @@ footer {
   position: relative;
   float: right;
   background-color: #fff; }
+  #wrapper #loginform {
+  width:415px;
+  height: 100%;
+  margin: auto;
+  margin-top: 5%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover }
+  #wrapper #daftarform {
+  width:415px;
+  height: 100%;
+  margin: auto;
+  margin-top: 3%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover }
+  #loginform .panel, #daftarform .panel{
+      border-radius: 10px;
+      border-bottom: solid 5px #64a19d; 
+  } 
+  #loginform button, #daftarform button{
+      border-radius: 5px;
+  }
 
 #wrapper #sidebar-nav,
 #wrapper .main {
@@ -1811,4 +1843,66 @@ table.dataTable thead .row-filter input {
 tbody img{
   max-width: 150px;
 }
+
+.animationload {
+    background-color: transparent;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}
+.osahanloading {
+    animation: 1.5s linear 0s normal none infinite running osahanloading;
+    background: #fed37f none repeat scroll 0 0;
+    border-radius: 50px;
+    height: 50px;
+    left: 50%;
+    margin-left: -25px;
+    margin-top: -25px;
+    position: absolute;
+    top: 50%;
+    width: 50px;
+}
+.osahanloading::after {
+    animation: 1.5s linear 0s normal none infinite running osahanloading_after;
+    border-color: #85d6de transparent;
+    border-radius: 80px;
+    border-style: solid;
+    border-width: 10px;
+    content: "";
+    height: 80px;
+    left: -15px;
+    position: absolute;
+    top: -15px;
+    width: 80px;
+}
+@keyframes osahanloading {
+0% {
+    transform: rotate(0deg);
+}
+50% {
+    background: #85d6de none repeat scroll 0 0;
+    transform: rotate(180deg);
+}
+100% {
+    transform: rotate(360deg);
+}
+}
+.loaded .animationload {
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+.loaded #loading-text{
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+.loaded #loader{
+ visibility: hidden;
+ transform: translateY(-100%);
+ transition: all 0.3s 1s ease-out;
+ }
+
+
 /*# sourceMappingURL=main.css.map */
